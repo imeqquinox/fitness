@@ -1,20 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Button, View, Text } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Button, View, Text } from 'react-native';
+import { StackParamList } from '../App';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center', 
-    justifyContent: 'center'
-  }
-});
+type HomeProps = NativeStackNavigationProp<StackParamList, 'Home'>;
 
 function Home() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeProps>();
 
   return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
+    <View className="flex-1 items-center justify-center bg-white">
+      <Text className='text-red-500'>Home Screen</Text>
       <Button 
         title='Go to Workout'
         onPress={() => navigation.navigate('Workout') }

@@ -1,12 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
-import Navbar from './components/Navbar';
 import Home from './screens/Home';
 import Workout from './screens/Workout';
 
-const Stack = createNativeStackNavigator();
+export type StackParamList = {
+  Home: undefined, 
+  Workout: undefined,
+}
+
+const Stack = createNativeStackNavigator<StackParamList>();
 
 export default function App() {
   return (
@@ -18,12 +20,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
